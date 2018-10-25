@@ -290,7 +290,6 @@ public class SAFrame extends JFrame implements ActionListener,InternalFrameListe
 		return fileChooser;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals(SAFrame.AC_IMPORT_SURVEY)){
 			JFileChooser fc=getFileChooser();
@@ -323,7 +322,6 @@ public class SAFrame extends JFrame implements ActionListener,InternalFrameListe
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public void modelPropertyChange(PropertyChangeEvent e) {
 		if(e.getPropertyName().equals(SAController.P_SURVEYS)){
 			List<SurveyTO> surveys=(List<SurveyTO>)e.getNewValue();
@@ -336,13 +334,11 @@ public class SAFrame extends JFrame implements ActionListener,InternalFrameListe
 		
 	}
 
-	@Override
 	public void internalFrameActivated(InternalFrameEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void internalFrameClosed(InternalFrameEvent e) {
 		IFrameSurveyData iframe=(IFrameSurveyData)e.getInternalFrame();
 		SurveyTO s=iframe.getSurvey();
@@ -350,31 +346,26 @@ public class SAFrame extends JFrame implements ActionListener,InternalFrameListe
 		controller.removeSurvey(s);
 	}
 
-	@Override
 	public void internalFrameClosing(InternalFrameEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void internalFrameDeactivated(InternalFrameEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void internalFrameDeiconified(InternalFrameEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void internalFrameIconified(InternalFrameEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void internalFrameOpened(InternalFrameEvent arg0) {
 		// TODO Auto-generated method stub
 		

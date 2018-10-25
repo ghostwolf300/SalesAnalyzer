@@ -86,7 +86,6 @@ public class KMLReaderPanel extends JPanel implements SAView, MouseListener {
 		return tblPostcodes;
 	}
 
-	@Override
 	public void modelPropertyChange(PropertyChangeEvent e) {
 		if(e.getPropertyName().equals(SAController.P_POLYGON_AREAS)){
 			List<PolygonArea> polygonAreas=(List<PolygonArea>)e.getNewValue();
@@ -94,31 +93,26 @@ public class KMLReaderPanel extends JPanel implements SAView, MouseListener {
 		}	
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent me) {
 		
 		
 	}
 
-	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		

@@ -43,12 +43,10 @@ public class SurveyDataTableModel extends AbstractTableModel {
 		this.fireTableDataChanged();
 	}
 	
-	@Override
 	public int getColumnCount() {
 		return columnNames.length;
 	}
 
-	@Override
 	public int getRowCount() {
 		int rowCount=0;
 		if(results!=null){
@@ -57,7 +55,6 @@ public class SurveyDataTableModel extends AbstractTableModel {
 		return rowCount;
 	}
 
-	@Override
 	public Object getValueAt(int row, int col) {
 		SurveyDataTO result=results[row];
 		return this.getColumnValue(result, col);

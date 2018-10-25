@@ -37,7 +37,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	private static final String sql_getSurveyData=
 		"SELECT * FROM tbl_surveyresult WHERE survey_id=?;";
 	
-	@Override
 	public List<PostcodeTO> getAllPostcodes() {
 		List<PostcodeTO> postcodes=null;
 		Connection con=AccessDAOFactory.createConnection();
@@ -68,7 +67,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 		return postcodes;
 	}
 	
-	@Override
 	public List<PostcodeTO> getPostcodes() {
 		List<PostcodeTO> postcodes=null;
 		Connection con=AccessDAOFactory.createConnection();
@@ -99,7 +97,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 		return postcodes;
 	}
 	
-	@Override
 	public List<PostcodeTO> getPMAPostcodes(String storeId,int pmaYear) {
 		
 		List<PostcodeTO> postcodes=null;
@@ -134,7 +131,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	}
 
 
-	@Override
 	public void updatePostcodes(List<PostcodeTO> postcodes) {
 		Connection con=AccessDAOFactory.createConnection();
 		PreparedStatement pstmnt=null;
@@ -164,7 +160,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 		}
 	}
 	
-	@Override
 	public List<SalesDataTO> getSalesData(String storeId,int surveyId) {
 		List<SalesDataTO> sales=null;
 		Connection con=AccessDAOFactory.createConnection();
@@ -197,7 +192,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 		return sales;
 	}
 	
-	@Override
 	public List<MarketDataTO> getMarketData(int surveyYear, int basemapYear) {
 		
 		List<MarketDataTO> dataList=null;
@@ -231,7 +225,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	}
 
 	
-	@Override
 	public void createPostcodeTable(String tableName, List<PostcodeTO> postcodes) {
 		
 		Connection con=AccessDAOFactory.createConnection();
@@ -327,7 +320,6 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 		return dataList;
 	}
 
-	@Override
 	public SurveyTO getSurvey(int surveyId) {
 		
 		SurveyTO survey=new SurveyTO();

@@ -106,7 +106,6 @@ public class KMLReaderFrame extends JFrame implements ActionListener {
 		return fileChooser;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals(KMLReaderFrame.ACTION_PICK_KML)){
 			JFileChooser fc=getFileChooser();

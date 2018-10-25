@@ -14,7 +14,6 @@ public class ExcelSurveyDataDAO implements SurveyDataDAO {
 		"SELECT Store,PostCodeI,CashRegister,Transaction,Amount " +
 		"FROM <storeSheet>;";
 	
-	@Override
 	public List<SurveyDataTO> getSurveyData(List<String> storeIds) {
 		Connection con=ExcelDAOFactory.createConnection();
 		ResultSet rs=null;

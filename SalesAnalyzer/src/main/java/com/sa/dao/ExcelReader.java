@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
@@ -44,7 +45,7 @@ public class ExcelReader {
 				recCount++;
 				Row row=ri.next();
 				Cell cell=row.getCell(0);
-				if(cell!=null && cell.getCellType()!=Cell.CELL_TYPE_BLANK){
+				if(cell!=null && cell.getCellType()!=CellType.BLANK){
 					SurveyDataTO data=readRow(row);
 					data.setResultId(recCount);
 					dataList.add(data);	
@@ -79,26 +80,29 @@ public class ExcelReader {
 	
 	private String getStringCellValue(Cell cell){
 		String value=null;
-		switch(cell.getCellType()){
-			case Cell.CELL_TYPE_NUMERIC :
-				value=String.valueOf((int)cell.getNumericCellValue());
-				break;
-			case Cell.CELL_TYPE_STRING :
-				value=cell.getStringCellValue();
-				break;
+		if(cell.getCellType()==CellType.NUMERIC) {
+			value=String.valueOf((int)cell.getNumericCellValue());
+		}
+		else if(cell.getCellType()==CellType.STRING) {
+			value=cell.getStringCellValue();
+		}
+		else {
+			
 		}
 		return value;
 	}
 	
 	private double getDoubleCellValue(Cell cell){
 		double value=-1;
-		switch(cell.getCellType()){
-			case Cell.CELL_TYPE_NUMERIC :
-				value=cell.getNumericCellValue();
-				break;
-			case Cell.CELL_TYPE_STRING :
-				value=Double.parseDouble(cell.getStringCellValue());
-				break;
+		
+		if(cell.getCellType()==CellType.NUMERIC) {
+			value=cell.getNumericCellValue();
+		}
+		else if(cell.getCellType()==CellType.STRING) {
+			value=Double.parseDouble(cell.getStringCellValue());
+		}
+		else {
+			
 		}
 		return value;
 	}
