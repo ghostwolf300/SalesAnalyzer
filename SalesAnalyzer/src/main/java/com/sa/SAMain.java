@@ -45,12 +45,12 @@ public class SAMain {
 	public SAMain(){
 		//doGeomapping();
 		//writeKML();
-		//findPostcodesInsideArea();
+		findPostcodesInsideArea();
 		//this.markPMAPostcodes("666", 2011);
 		//new KMLReaderFrame();
-		SAController controller=SAController.getInstance();
-		controller.addModel(new SAModel());
-		new SAFrame();
+		//SAController controller=SAController.getInstance();
+		//controller.addModel(new SAModel());
+		//new SAFrame();
 		
 	}
 	
@@ -241,7 +241,8 @@ public class SAMain {
 	public void findPostcodesInsideArea(){
 		
 		DAOFactory factory=DAOFactory.getDAOFactory(DAOFactory.ACCESS);
-		factory.setDatabasePath("D:/Ohjelmointi/Tietokannat/IKEA_VC.mdb");
+		//factory.setDatabasePath(System.getProperty("user.dir")+"\\IKEA_VC.mdb");
+		factory.setDatabasePath("C:/Users/ville.susi/Sales Analyzer/IKEA_VC.mdb");
 		PostcodeDAO dao=factory.getPostcodeDAO();
 		
 		KMLReader reader=new KMLReader(new File("kuopio_pma_new.kml"));

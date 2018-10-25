@@ -36,7 +36,7 @@ public class SAController extends AbstractController {
 	
 	private void initialize(){
 		DAOFactory factory=DAOFactory.getDAOFactory(DAOFactory.ACCESS);
-		factory.setDatabasePath("D:/Ohjelmointi/Tietokannat/IKEA_VC.mdb");
+		factory.setDatabasePath("C:/Users/ville.susi/Sales Analyzer/IKEA_VC.mdb");
 		postcodeDAO=factory.getPostcodeDAO();
 		kmlDAO=new KMLDAO();
 	}
