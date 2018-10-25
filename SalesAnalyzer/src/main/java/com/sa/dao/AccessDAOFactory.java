@@ -1,10 +1,13 @@
 package com.sa.dao;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class AccessDAOFactory extends DAOFactory {
+	
+	private static AccessDAOFactory instance;
 	
 	//private static final String driver="sun.jdbc.odbc.JdbcOdbcDriver";
 	private static final String DRIVER="net.ucanaccess.jdbc.UcanaccessDriver";
@@ -13,6 +16,16 @@ public class AccessDAOFactory extends DAOFactory {
 	private static String dbPath=null;
 	private static String conStr=null;
 	
+	private AccessDAOFactory() {
+		loadDriver();
+	}
+	
+	public static synchronized AccessDAOFactory getInstance() {
+		if(instance==null) {
+			instance=new AccessDAOFactory();
+		}
+		return instance;
+	}
 	
 	public PostcodeDAO getPostcodeDAO() {
 		return new AccessPostcodeDAO();
@@ -33,19 +46,22 @@ public class AccessDAOFactory extends DAOFactory {
 		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 		
 	}
 	
-	public static Connection createConnection(){
+	public Connection createConnection(){
+		
+		loadDriver();
+		
 		Connection conn=null;
+		
 		try {
-			
 			conn=DriverManager.getConnection(conStr);
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} 
 		return conn;
 	}
 	

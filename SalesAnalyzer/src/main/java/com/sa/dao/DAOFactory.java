@@ -13,7 +13,7 @@ public abstract class DAOFactory {
 	public static DAOFactory getDAOFactory(int whichFactory){
 		switch(whichFactory){
 			case ACCESS :
-				DAOFactory factory=new AccessDAOFactory();
+				DAOFactory factory=AccessDAOFactory.getInstance();
 				return factory;
 			case EXCEL :
 				return new ExcelDAOFactory();

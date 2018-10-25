@@ -39,7 +39,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	
 	public List<PostcodeTO> getAllPostcodes() {
 		List<PostcodeTO> postcodes=null;
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		Statement stmnt=null;
 		ResultSet rs=null;
 		
@@ -69,7 +69,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	
 	public List<PostcodeTO> getPostcodes() {
 		List<PostcodeTO> postcodes=null;
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		Statement stmnt=null;
 		ResultSet rs=null;
 		
@@ -100,7 +100,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	public List<PostcodeTO> getPMAPostcodes(String storeId,int pmaYear) {
 		
 		List<PostcodeTO> postcodes=null;
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		PreparedStatement pstmnt=null;
 		ResultSet rs=null;
 		
@@ -132,7 +132,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 
 
 	public void updatePostcodes(List<PostcodeTO> postcodes) {
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		PreparedStatement pstmnt=null;
 		
 		try {
@@ -162,7 +162,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	
 	public List<SalesDataTO> getSalesData(String storeId,int surveyId) {
 		List<SalesDataTO> sales=null;
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		PreparedStatement pstmnt=null;
 		ResultSet rs=null;
 		
@@ -195,7 +195,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	public List<MarketDataTO> getMarketData(int surveyYear, int basemapYear) {
 		
 		List<MarketDataTO> dataList=null;
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		PreparedStatement pstmnt=null;
 		ResultSet rs=null;
 		
@@ -227,7 +227,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 	
 	public void createPostcodeTable(String tableName, List<PostcodeTO> postcodes) {
 		
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		PreparedStatement createTableStmnt=null;
 		PreparedStatement changeNameStmnt=null;
 		PreparedStatement pstmntInsert=null;
@@ -324,7 +324,7 @@ public class AccessPostcodeDAO implements PostcodeDAO {
 		
 		SurveyTO survey=new SurveyTO();
 		
-		Connection con=AccessDAOFactory.createConnection();
+		Connection con=AccessDAOFactory.getInstance().createConnection();
 		PreparedStatement psSurveyInfo=null;
 		PreparedStatement psSurveyData=null;
 		ResultSet rsInfo=null;

@@ -25,6 +25,7 @@ import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 import org.htmlparser.util.ParserUtils;
 
+import com.sa.dao.AccessDAOFactory;
 import com.sa.dao.DAOFactory;
 import com.sa.dao.PostcodeDAO;
 import com.sa.gui.SAFrame;
@@ -240,10 +241,10 @@ public class SAMain {
 	
 	public void findPostcodesInsideArea(){
 		
-		DAOFactory factory=DAOFactory.getDAOFactory(DAOFactory.ACCESS);
+		
 		//factory.setDatabasePath(System.getProperty("user.dir")+"\\IKEA_VC.mdb");
-		factory.setDatabasePath("C:/Users/ville.susi/Sales Analyzer/IKEA_VC.mdb");
-		PostcodeDAO dao=factory.getPostcodeDAO();
+		AccessDAOFactory.getInstance().setDatabasePath("C:/temp/IKEA_VC.mdb");
+		PostcodeDAO dao=AccessDAOFactory.getInstance().getPostcodeDAO();
 		
 		KMLReader reader=new KMLReader(new File("kuopio_pma_new.kml"));
 		
